@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="327px" height="227px" viewBox="0 0 327 227" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="24" y="192" width="327" height="183"></rect>
+        <filter x="-0.9%" y="-1.6%" width="101.8%" height="106.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.0941176471   0 0 0 0 0.0980392157   0 0 0 0 0.121568627  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <circle id="path-3" cx="30" cy="30" r="30"></circle>
+        <filter x="-1.7%" y="-1.7%" width="103.3%" height="106.7%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.0941176471   0 0 0 0 0.0980392157   0 0 0 0 0.121568627  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <path d="M11.4424283,10.1530612 C11.2726319,10.49705 10.9445825,10.7355858 10.5650026,10.7910671 L4.84108333,11.6277036 L8.98195799,15.6609155 C9.25714401,15.9289467 9.38275042,16.3152664 9.31781311,16.6938839 L8.34081398,22.3902856 L13.4582432,19.6990809 C13.7981899,19.5203064 14.2043495,19.5203064 14.5442962,19.6990809 L19.6617255,22.3902856 L18.6847263,16.6938839 C18.619789,16.3152664 18.7453954,15.9289467 19.0205815,15.6609155 L23.1614561,11.6277036 L17.4375368,10.7910671 C17.0579569,10.7355858 16.7299075,10.49705 16.5601111,10.1530612 L14.0012697,4.96913006 L11.4424283,10.1530612 Z M9.62129813,8.57087712 L12.9551111,1.81693877 C13.3830858,0.9499093 14.6194537,0.9499093 15.0474283,1.81693877 L18.3812413,8.57087712 L25.8366693,9.66059959 C26.7932364,9.8004162 27.1744838,10.976231 26.481958,11.6507511 L21.0882118,16.9042599 L22.3611464,24.3261161 C22.5246181,25.2792387 21.5241444,26.0060289 20.6682432,25.5559191 L14.0012697,22.0498246 L7.33429621,25.5559191 C6.47839505,26.0060289 5.47792139,25.2792387 5.641393,24.3261161 L6.91432764,16.9042599 L1.52058146,11.6507511 C0.828055673,10.976231 1.20930302,9.8004162 2.16587014,9.66059959 L9.62129813,8.57087712 Z" id="path-5"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Order-confirmation" transform="translate(-24.000000, -148.000000)">
+            <rect id="bg" fill="#FFBD12" x="24" y="148" width="327" height="227" ></rect>
+            <rect id="bg" fill="#fff" x="24" y="238" width="327" height="227" ></rect>
+            <g id="button-/-large-/-outline---icon-only" transform="translate(267.000000, 212.000000)">
+                <g id="shadow">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <circle stroke="#18191F" stroke-width="2" stroke-linejoin="square" fill="#18191F" fill-rule="evenodd" cx="30" cy="30" r="29"></circle>
+                </g>
+                <circle id="bg" stroke="#18191F" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" cx="30" cy="30" r="29"></circle>
+                <g id="star" transform="translate(16.000000, 16.000000)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <use id="Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-5"></use>
+                    <g id="icon-color-/-black" mask="url(#mask-6)" fill="#18191F" fill-rule="evenodd">
+                        <rect id="Rectangle" x="0" y="0" width="28" height="28"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
