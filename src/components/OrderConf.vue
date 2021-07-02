@@ -17,7 +17,6 @@ export default {
   methods: {
       goToShop() {
           this.page = 'home';
-          // document.getElementById('order-conf').classList.add('hidden') 
           location.reload();
       }
   }

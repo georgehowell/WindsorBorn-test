@@ -4,7 +4,7 @@
       <h2 @click="goToShop()">Shop</h2>
       <div class="cart" @click="goToCart()">
           <img src="@/assets/img/icon-cart.svg" alt="cart" />
-          <div id="counter2"><Counter /></div>
+          <span id="counter2" class="hidden">{{product}}</span>
         </div>
     </div>
 
@@ -52,9 +52,9 @@
     </div>
 
     <!-- pop-up, 'Shop' page  -->
-    <div id="pop-up" class="opacity">
+    <div id="pop-up" class="hide fade" v-for="product in filteredCategory" :key="product.id">
       <span class="close" @click="close()"><img src="../assets/img/close.svg" alt="close" /></span>
-      <p><strong>Fur-neck Jacket </strong> has been added to your cart.</p>
+      <p><strong>{{product.name}} </strong> has been added to your cart.</p>
     </div>
 
   </div> <!-- end "wrapper" -->
@@ -66,15 +66,13 @@ import Product from "./Product.vue";
 import Cart from "./Cart.vue";
 import Checkout from "./Checkout.vue";
 import OrderConf from "./OrderConf.vue";
-import Counter from './Counter.vue'
 
 export default {
   components: {
     Product,
     Cart,
     Checkout,
-    OrderConf,
-    Counter
+    OrderConf
   },
   el:  "#product-loop",
   data () {
@@ -83,6 +81,7 @@ export default {
   		selectedCategory: "All",
       cart: [],
       page: 'home',
+      product: 0
     }
   },
   props: ['value'], 
@@ -99,13 +98,18 @@ export default {
     goToCheckout() {
       this.page = 'checkout';
     },
+    emitResult() {
+      this.$emit('value', this.product)
+    },
 
     addToCart(product) {
       this.cart.push(product);
-      document.getElementById('pop-up').classList.remove('opacity')
+      this.product += 1
+      this.emitResult()
+      document.getElementById('pop-up').classList.remove('hide')
       setTimeout(function() {
-        document.getElementById('pop-up').classList.add('opacity')
-      }, 2000);
+        document.getElementById('pop-up').classList.add('hide')
+      }, 2500);
     },
     isInCart(product) {
       const item = this.cart.find(item => item.id === product.id);
@@ -116,6 +120,10 @@ export default {
     },
     removeFromCart(product) {
       this.cart = this.cart.filter(item => item.id !== product.id);
+      if(this.product >= 1) {
+          this.product -= 1
+          this.emitResult()
+        }
     },
     pay() {
       this.cart = [];
@@ -176,13 +184,20 @@ input, button {
     border-bottom: 2px #000 solid;
 }
 h2 {font-size: 20px; margin: 0;}
-.hide {display: none;}
-.hidden {visibility: hidden;}
-.opacity {
-  opacity: 0;
-  transition: ease-in-out 1s;
-  z-index: 99999;
+.hide {
+  display: none; 
 }
+.fade {
+  animation: fade 2.5s linear;
+}
+@keyframes fade {
+  0% { opacity: 1 }
+  50% { opacity: 1 }
+  75% { opacity: 1 }
+  100% { opacity: 0 }
+}
+
+.hidden {visibility: hidden;}
 
 ul li {
   list-style: none;

@@ -13,8 +13,8 @@
                     <span :id="`sub` + product.id" class="sub hidden" @click="sub()" v-on:remove-from-cart="removeFromCart($event)">
                       <img src="../assets/img/minus.svg" alt="-" />
                     </span>
-                    <Counter />
-                    <span class="add" @click="$emit('add-to-cart',product); add(); showBtns()" :disabled="isInCart">
+                    <span :id="`counter` + product.id" class="counter1 hidden">{{itemCount}}</span>
+                    <span :id="product.id" class="add" @click="$emit('add-to-cart',product); add(); showBtns()" :disabled="isInCart">
                        <img src="../assets/img/plus.svg" alt="+" />
                     </span>
                 </div>
@@ -24,46 +24,64 @@
 </template>
 
 <script>
-import Counter from './Counter.vue'
-
 export default {
    data () {
     return {
+        itemCount: 0
     }
   },
   props: ['value','product','isInCart'],
-  components: {
-    Counter
-  },
   methods: {
     emitResult() {
-      this.$emit('value', this.result)
+      this.$emit('value', this.itemCount)
     },
+
     add() {
-      this.result += 1
+      this.itemCount += 1
       this.emitResult()
     },
     sub() {
-        if(this.result >= 1) {
-          this.result -= 1
+      if(this.itemCount >= 1) {
+          this.itemCount -= 1
           this.emitResult()
         }
     },
   },
-    computed: {
-        showBtns() {
-            var minusBtn = document.getElementById('sub1');
-            var counter1 = document.getElementById('counter1');
-            var counter2 = document.getElementById('counter2');
-            var popUp = document.getElementById('pop-up');
-            if(counter1.value.length > 0) {
-                minusBtn.classList.remove('hidden')
-                counter1.classList.remove('hidden')
-                counter2.classList.remove('hidden')
-                popUp.classList.remove('hidden')
-            }
+  computed: {
+    showBtns() {
+        const counter2 = document.getElementById('counter2');
+        counter2.classList.remove('hidden')
+        const popUp = document.getElementById('pop-up');
+        popUp.classList.remove('hide')
+
+        const btn1 = document.getElementById('1')
+        const btn2 = document.getElementById('2')
+        const btn3 = document.getElementById('3')
+        const btn4 = document.getElementById('4')
+        const btn5 = document.getElementById('5')
+
+        if(btn1) {
+            document.getElementById('sub1').classList.remove('hidden');
+            document.getElementById('counter1').classList.remove('hidden');
         }
-    } 
+        if(btn2){
+            document.getElementById('sub2').classList.remove('hidden');
+            document.getElementById('counter2').classList.remove('hidden');
+        }
+        if(btn3){
+            document.getElementById('sub3').classList.remove('hidden');
+            document.getElementById('counter3').classList.remove('hidden');
+        }
+        if(btn4){
+            document.getElementById('sub4').classList.remove('hidden');
+            document.getElementById('counter4').classList.remove('hidden');
+        }
+        if(btn5){
+            document.getElementById('sub5').classList.remove('hidden');
+            document.getElementById('counter5').classList.remove('hidden');
+        }
+    }
+  } 
 }
 </script>
 
@@ -119,7 +137,7 @@ export default {
 }
 .btn_add-to-cart {
     height: 35px;
-    width: 95px;
+    width: 90px;
     padding-left: 10px;
     background-color: #FFBD12;
     border: 2px #000 solid;
@@ -130,6 +148,7 @@ export default {
 }
 .btn-text {
     position: absolute;
+    margin-left: -27px;
     padding: 7px 10px 0 5px;
     z-index: 9;
     background-color: #FFBD12;
@@ -145,7 +164,7 @@ export default {
     float: left;
     position: relative;
     left: -10px;
-    z-index: 999;
+    z-index: 98;
     line-height: 45%;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -154,14 +173,12 @@ export default {
     text-align: center;
     position: relative;
     top: 7px;
-    padding-left: 3px;
+    padding-left: 6px;
 }
 .add {
-    position: relative;
-    top: -24px;
     float: right;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    z-index: 999;
+    z-index: 99999;
 }
 </style>
